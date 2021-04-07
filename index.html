@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />-->
+    <script src="https://kit.fontawesome.com/b7dcf1c2f6.js" crossorigin="anonymous"></script>
+    <title>Todo App</title>
+</head>
+<body>
+<div id="vue-app">
+    <side-bar></side-bar>
+       <section class="section-1">
+        <div class="todo-wrapper">
+            <form v-on:submit.prevent="addTodo">
+                <h1 class="title">todos</h1>
+                <input class="new-todo" type="text" v-model="newTodo" placeholder="Add new todo">
+                <button class="add-btn">&plus;</button>
+            </form>
+            <ul class="todo-list">
+                <li
+                    is="todo-item"
+                    v-for="(todo, index) in todos"
+                    v-bind:key="todo.id"
+                    v-bind:class="{ done: todo.done }"
+                    v-bind:title="todo.title"
+                    v-bind:done="todo.done"
+                    v-on:input="changeStatus(index)"
+                    v-on:delete="deleteTodo(index)"
+                >
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
