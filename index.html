@@ -6,33 +6,40 @@
     <link href="style.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />-->
     <script src="https://kit.fontawesome.com/b7dcf1c2f6.js" crossorigin="anonymous"></script>
     <title>Todo App</title>
 </head>
 <body>
 <div id="vue-app">
-    <side-bar></side-bar>
-       <section class="section-1">
+    <side-bar>
+
+    </side-bar>
+    <section>
         <div class="todo-wrapper">
             <form v-on:submit.prevent="addTodo">
                 <h1 class="title">todos</h1>
                 <input class="new-todo" type="text" v-model="newTodo" placeholder="Add new todo">
                 <button class="add-btn">&plus;</button>
             </form>
-            <ul class="todo-list">
-                <li
-                    is="todo-item"
-                    v-for="(todo, index) in todos"
-                    v-bind:key="todo.id"
-                    v-bind:class="{ done: todo.done }"
-                    v-bind:title="todo.title"
-                    v-bind:done="todo.done"
-                    v-on:input="changeStatus(index)"
-                    v-on:delete="deleteTodo(index)"
-                >
-                </li>
+            <ul class="todo-list" v-if="todos.length">
+                 <li
+                         is="todo-item"
+                         v-for="(todo, index) in todos"
+                         v-bind:key="todo.id"
+                         class="todo-item"
+                         v-bind:class="{ done: todo.done }"
+                         v-bind:title="todo.title"
+                         v-bind:done="todo.done"
+                         v-on:input="changeStatus(index)"
+                         v-on:delete="deleteTodo(index)"
+                 >
+                 </li>
             </ul>
+            <div class="empty-list" v-else>
+                <strong>Time to chill! You have no todos.</strong>
+                <a href="https://www.freepik.com/vectors/baby"><img src="img/cat_chilling.png" alt="happy cat"></a>
+            </div>
+            <p class="todo-counter" v-if="incomplete.length > 0">{{ completed.length }}/{{ todos.length }} todos</p>
         </div>
     </section>
 </div>

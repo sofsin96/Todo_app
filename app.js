@@ -12,8 +12,8 @@ Vue.component('side-bar', {
                 <li class="nav-item"><i class="fas fa-question-circle"></i>Help</li>
             </ul>
             <div class="social-links">
-                <img src="https://img.icons8.com/fluent/30/000000/instagram-new.png" alt="instagram">
-                <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" alt="facebook">
+                <a href="https://icons8.com/icon/32323/instagram"><img src="https://img.icons8.com/fluent/30/000000/instagram-new.png" alt="instagram"></a>
+                <a href="https://icons8.com/icon/118497/facebook"><img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" alt="facebook"></a>
             </div>
         </nav>      
     `
@@ -21,10 +21,11 @@ Vue.component('side-bar', {
 
 Vue.component('todo-item', {
     template: `
-        <li class="todo-item">
+        <li>
             <input type="checkbox" v-bind:checked="done" v-on:change="$emit('input', $event.target.checked)" id="checkbox">
             <span>{{ title }}</span>
             <i class="fas fa-trash" v-on:click="$emit('delete')"></i>
+            <hr>
         </li>
     `,
     props: ['title', 'done']
@@ -37,7 +38,7 @@ var app = new Vue ({
         todos: [
             {"id": 0, "title": "Play games on iPad", "done": false},
             {"id": 1, "title": "Nap", "done": false},
-            {"id": 2, "title": "Freak-out at midnight", "done": false}
+            {"id": 2, "title": "Freak-out at midnight", "done": true}
         ]
     },
     methods: {
@@ -61,6 +62,18 @@ var app = new Vue ({
             todo.done = !todo.done;
             this.todos.sort((x,y) => x.done - y.done);
             // this.todos.sort((x, y) => (x.done > y.done) ? 1 : -1)
+        }
+    },
+    computed: {
+        completed: function () {
+            return this.todos.filter(todo =>
+                todo.done
+            );
+        },
+        incomplete: function () {
+            return this.todos.filter(todo =>
+                !todo.done
+            );
         }
     }
 });

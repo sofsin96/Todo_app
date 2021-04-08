@@ -11,6 +11,14 @@ html {
 
 body {
     margin-left: 200px;
+    background-color: beige;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu {
@@ -74,27 +82,22 @@ body {
     bottom: 10px;
 }
 
+.social-links {
+    pointer-events: none;
+    cursor: default;
+}
+
 .social-links img:nth-of-type(2) {
     margin-left: 15px;
 }
 
-.section-1 {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #a8bbbf;
-    position: relative;
-}
-
 .todo-wrapper {
-    background-color: beige;
-    width: 500px;
-    height: 600px;
-    padding: 40px 20px;
+    width: 400px;
+    height: 500px;
+    padding: 40px 40px;
+    border-radius: 15px;
+    background-color: white;
 }
-
 
 /*.todo-wrapper::before {
     position: absolute;
@@ -123,7 +126,7 @@ body {
     height: 40px;
     position: relative;
     z-index: 0;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     padding-left: 5px;
     caret-color: tomato;
     border: 0;
@@ -181,8 +184,9 @@ body {
 }
 
 .todo-list {
-    height: 400px;
+    height: 250px;
     overflow: auto;
+    margin-bottom: 20px;
 }
 
 .todo-list::-webkit-scrollbar {
@@ -206,6 +210,11 @@ body {
     list-style-type: none;
     margin-bottom: 10px;
     width: 100%;
+}
+
+.todo-item hr{
+    margin-top: 10px;
+    border-color: rgba(0,0,0,0.1);
 }
 
 #checkbox {
@@ -260,10 +269,37 @@ body {
     color: #a8bbbf
 }
 
+.empty-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-list a {
+    pointer-events: none;
+    cursor: default;
+}
+
+.empty-list img {
+    width: 250px;
+    height: 250px;
+}
+
+.empty-list strong {
+    padding-top: 20px;
+}
+
+.todo-counter {
+    color: rgba(0,0,0,0.5);
+}
+
 @media screen and (max-width: 767px) {
+
     body {
         margin-left: 0;
     }
+
     #hamburger {
         display: block;
         font-size: 40px;
@@ -284,7 +320,6 @@ body {
 
     .todo-wrapper {
         border-radius: 0;
-        padding: 40px 40px;
     }
 }
 
