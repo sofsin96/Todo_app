@@ -1,7 +1,7 @@
 Vue.component('side-bar', {
     template: `
         <nav class="menu">
-            <i class="bx bx-menu-alt-left" id="hamburger"></i>
+            <i class="bx bx-menu-alt-left" id="hamburger" v-on:click="$emit('show')"></i>
             <header class="avatar">
                 <div class="image"></div>  
                 <h2>Carlos R.</h2>
@@ -34,6 +34,7 @@ Vue.component('todo-item', {
 var app = new Vue ({
     el: '#vue-app',
     data: {
+        navActive: false,
         newTodo: '',
         todos: [
             {"id": 0, "title": "Play games on iPad", "done": false},
@@ -62,6 +63,9 @@ var app = new Vue ({
             todo.done = !todo.done;
             this.todos.sort((x,y) => x.done - y.done);
             // this.todos.sort((x, y) => (x.done > y.done) ? 1 : -1)
+        },
+        showNav: function () {
+            this.navActive = !this.navActive;
         }
     },
     computed: {
@@ -74,14 +78,9 @@ var app = new Vue ({
             return this.todos.filter(todo =>
                 !todo.done
             );
+        },
+        today: function () {
+            return new Date().toDateString();
         }
     }
-});
-
-// show/hide sidebar menu
-const hamburger = document.querySelector('#hamburger');
-const menu = document.querySelector('.menu');
-
-hamburger.addEventListener('click',() => {
-    menu.classList.toggle('active');
 });

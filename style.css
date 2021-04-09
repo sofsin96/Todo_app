@@ -17,6 +17,7 @@ body {
 section {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -94,32 +95,10 @@ section {
 .todo-wrapper {
     width: 400px;
     height: 500px;
-    padding: 40px 40px;
+    padding: 40px 40px 0 40px;
     border-radius: 15px;
     background-color: white;
 }
-
-/*.todo-wrapper::before {
-    position: absolute;
-    content: '';
-    width: 100px;
-    height: 100px;
-    background-color: #a8bbbf;
-    top: -10px;
-    right: 50%;
-    transform: skew(0, 20deg);
-}
-
-.todo-wrapper::after {
-    position: absolute;
-    content: '';
-    width: 100px;
-    height: 100px;
-    background-color: #a8bbbf;
-    top: -10px;
-    left: 50%;
-    transform: skew(0, -20deg);
-}*/
 
 .new-todo {
     width: 100%;
@@ -286,12 +265,8 @@ section {
     height: 250px;
 }
 
-.empty-list strong {
-    padding-top: 20px;
-}
-
 .todo-counter {
-    color: rgba(0,0,0,0.5);
+    color: rgba(0,0,0,0.4);
 }
 
 @media screen and (max-width: 767px) {

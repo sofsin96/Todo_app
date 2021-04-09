@@ -11,10 +11,14 @@
 </head>
 <body>
 <div id="vue-app">
-    <side-bar>
-
+    <side-bar
+        v-model="navActive"
+        v-bind:class="{ active: navActive }"
+        v-on:show="showNav"
+    >
     </side-bar>
     <section>
+        {{ today }}
         <div class="todo-wrapper">
             <form v-on:submit.prevent="addTodo">
                 <h1 class="title">todos</h1>
