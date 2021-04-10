@@ -49,9 +49,7 @@
             <strong>Time to chill! You have no todos.</strong>
             <a href="https://www.freepik.com/vectors/baby"><img src="img/cat_chilling.png" alt="happy cat"></a>
         </div>
-        <p class="todo-counter" v-if="incomplete.length > 0">{{ completed.length }}/{{ todos.length }} todos</p>
-        <button v-else>clear all</button>
-    </div>
+        <p class="todo-counter" v-if="incomplete.length > 0">{{ completed.length }}/{{ todos.length }} todos<span class="clear" v-on:click="clearAll">Clear All</span></p>
 </div>
 
 

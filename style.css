@@ -122,9 +122,12 @@ body {
     border-radius: 50%;
     font-size: 32px;
     border: 0;
-    outline: none;
     color: tomato;
     cursor: pointer;
+}
+
+.add-btn:focus {
+    outline: 0;
 }
 
 .add-btn:hover {
@@ -295,6 +298,15 @@ body {
     right: 50px;
     width: 75px;
     height: 75px;
+}
+
+.clear {
+    cursor: pointer;
+    float: right;
+}
+
+.clear:hover {
+    color: tomato;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {

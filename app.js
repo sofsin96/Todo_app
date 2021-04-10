@@ -72,6 +72,9 @@ var app = new Vue ({
             const bodyEl = document.querySelector('body');
             bodyEl.classList.toggle('dark');
             this.darkMode = !this.darkMode;
+        },
+        clearAll: function () {
+            this.todos = [];
         }
     },
     computed: {
