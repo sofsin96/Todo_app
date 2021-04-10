@@ -35,6 +35,7 @@ var app = new Vue ({
     el: '#vue-app',
     data: {
         navActive: false,
+        darkMode: false,
         newTodo: '',
         todos: [
             {"id": 0, "title": "Play games on iPad", "done": false},
@@ -66,6 +67,11 @@ var app = new Vue ({
         },
         showNav: function () {
             this.navActive = !this.navActive;
+        },
+        switchTheme: function () {
+            const bodyEl = document.querySelector('body');
+            bodyEl.classList.toggle('dark');
+            this.darkMode = !this.darkMode;
         }
     },
     computed: {

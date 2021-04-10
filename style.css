@@ -6,24 +6,20 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    height: 100%;
 }
 
 body {
-    margin-left: 200px;
-    background-color: beige;
-}
-
-section {
-    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: cadetblue;
+    min-height: 100%;
+    margin-left: 200px;
 }
 
 .menu {
-    height: 100vh;
+    height: 100%;
     width: 200px;
     position:fixed;
     background-color: grey;
@@ -51,7 +47,9 @@ section {
     margin: 0 auto;
     background-color: white;
     background-position: right 7px top -3px;
-    border: 3px solid #1a1a1a;
+    padding: 2px;
+    border: 2px solid white;
+    background-clip: content-box;
 }
 
 .avatar h2 {
@@ -68,9 +66,9 @@ section {
     cursor: pointer;
 }
 
-.nav-item i {
+.nav-item i{
     margin-right: 7px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .nav-item:hover {
@@ -95,7 +93,7 @@ section {
 .todo-wrapper {
     width: 400px;
     height: 500px;
-    padding: 40px 40px 0 40px;
+    padding: 40px 40px 20px 40px;
     border-radius: 15px;
     background-color: white;
 }
@@ -162,8 +160,12 @@ section {
     -webkit-font-smoothing: antialiased;
 }
 
+.date {
+    margin-bottom: 20px;
+}
+
 .todo-list {
-    height: 250px;
+    height: 200px;
     overflow: auto;
     margin-bottom: 20px;
 }
@@ -191,7 +193,7 @@ section {
     width: 100%;
 }
 
-.todo-item hr{
+.todo-item hr {
     margin-top: 10px;
     border-color: rgba(0,0,0,0.1);
 }
@@ -266,8 +268,75 @@ section {
 }
 
 .todo-counter {
-    color: rgba(0,0,0,0.4);
+    color: rgba(0,0,0,0.6);
 }
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.bxs-moon, .bxs-sun {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.bxs-moon:hover {
+    color: blue;
+}
+.bxs-sun:hover {
+    color: yellow;
+}
+
+.arrow {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 75px;
+    height: 75px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        margin-left: 0;
+    }
+
+    #hamburger {
+        display: block;
+        font-size: 40px;
+        position: absolute;
+        left: 200px;
+        background-color: rgba(0,0,0,0.1);
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .menu {
+        margin-left: -200px;
+    }
+
+    .menu.active {
+        margin-left: 0;
+    }
+
+    .bxs-moon, .bxs-sun {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+
+    }
+
+    .bxs-moon.bx-tada-hover:hover, .bxs-sun.bx-tada-hover:hover {
+        color: initial;
+        animation: none;
+    }
+
+    .arrow {
+        display: none;
+    }
+}
+
 
 @media screen and (max-width: 767px) {
 
@@ -295,6 +364,21 @@ section {
 
     .todo-wrapper {
         border-radius: 0;
+    }
+
+    .bxs-moon, .bxs-sun {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+    }
+
+    .bxs-moon.bx-tada-hover:hover, .bxs-sun.bx-tada-hover:hover {
+        color: initial;
+        animation: none;
+    }
+
+    .arrow {
+        display: none;
     }
 }
 

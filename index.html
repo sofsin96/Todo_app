@@ -17,35 +17,41 @@
         v-on:show="showNav"
     >
     </side-bar>
-    <section>
-        {{ today }}
-        <div class="todo-wrapper">
-            <form v-on:submit.prevent="addTodo">
-                <h1 class="title">todos</h1>
-                <input class="new-todo" type="text" v-model="newTodo" placeholder="Add new todo">
-                <button class="add-btn">&plus;</button>
-            </form>
-            <ul class="todo-list" v-if="todos.length">
-                 <li
-                         is="todo-item"
-                         v-for="(todo, index) in todos"
-                         v-bind:key="todo.id"
-                         class="todo-item"
-                         v-bind:class="{ done: todo.done }"
-                         v-bind:title="todo.title"
-                         v-bind:done="todo.done"
-                         v-on:input="changeStatus(index)"
-                         v-on:delete="deleteTodo(index)"
-                 >
-                 </li>
-            </ul>
-            <div class="empty-list" v-else>
-                <strong>Time to chill! You have no todos.</strong>
-                <a href="https://www.freepik.com/vectors/baby"><img src="img/cat_chilling.png" alt="happy cat"></a>
-            </div>
-            <p class="todo-counter" v-if="incomplete.length > 0">{{ completed.length }}/{{ todos.length }} todos</p>
+    <div class="theme-toggle" v-on:click="switchTheme">
+        <i v-if="!darkMode" class='bx bxs-moon bx-tada-hover'></i>
+        <i v-else class='bx bxs-sun bx-tada-hover'></i>
+    </div>
+
+    <img src="img/arrow-png-tumblr-png-image-511048.png" alt="arrow" class="arrow">
+
+    <div class="todo-wrapper">
+        <form v-on:submit.prevent="addTodo">
+            <h1 class="title">todos</h1>
+            <p class="date">{{ today }}</p>
+            <input class="new-todo" type="text" v-model="newTodo" placeholder="Add new todo">
+            <button class="add-btn">&plus;</button>
+        </form>
+        <ul class="todo-list" v-if="todos.length">
+             <li
+                     is="todo-item"
+                     v-for="(todo, index) in todos"
+                     v-bind:key="todo.id"
+                     class="todo-item"
+                     v-bind:class="{ done: todo.done }"
+                     v-bind:title="todo.title"
+                     v-bind:done="todo.done"
+                     v-on:input="changeStatus(index)"
+                     v-on:delete="deleteTodo(index)"
+             >
+             </li>
+        </ul>
+        <div class="empty-list" v-else>
+            <strong>Time to chill! You have no todos.</strong>
+            <a href="https://www.freepik.com/vectors/baby"><img src="img/cat_chilling.png" alt="happy cat"></a>
         </div>
-    </section>
+        <p class="todo-counter" v-if="incomplete.length > 0">{{ completed.length }}/{{ todos.length }} todos</p>
+        <button v-else>clear all</button>
+    </div>
 </div>
 
 
