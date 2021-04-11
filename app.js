@@ -12,8 +12,9 @@ Vue.component('side-bar', {
                 <li class="nav-item"><i class="fas fa-question-circle"></i>Help</li>
             </ul>
             <div class="social-links">
-                <a href="https://icons8.com/icon/32323/instagram"><img src="https://img.icons8.com/fluent/30/000000/instagram-new.png" alt="instagram"></a>
                 <a href="https://icons8.com/icon/118497/facebook"><img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" alt="facebook"></a>
+                <a href="https://icons8.com/icon/32323/instagram"><img src="https://img.icons8.com/fluent/30/000000/instagram-new.png" alt="instagram"></a>
+                <a href="https://icons8.com/icon/5MQ0gPAYYx7a/twitter"><img src="https://img.icons8.com/fluent/30/000000/twitter.png"/></a>            
             </div>
         </nav>      
     `
@@ -42,6 +43,19 @@ var app = new Vue ({
             {"id": 1, "title": "Nap", "done": false},
             {"id": 2, "title": "Freak-out at midnight", "done": true}
         ]
+    },
+    mounted() {
+        if(localStorage.todos) {
+            this.todos = JSON.parse(localStorage.todos);
+        }
+    },
+    watch: {
+      todos: {
+          handler(updatedTodos) {
+              localStorage.todos = JSON.stringify(updatedTodos);
+          },
+          deep: true
+      }
     },
     methods: {
         addTodo: function () {

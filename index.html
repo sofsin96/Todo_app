@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet">
+    <link href="style2.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b7dcf1c2f6.js" crossorigin="anonymous"></script>
@@ -18,11 +18,11 @@
     >
     </side-bar>
     <div class="theme-toggle" v-on:click="switchTheme">
-        <i v-if="!darkMode" class='bx bxs-moon bx-tada-hover'></i>
-        <i v-else class='bx bxs-sun bx-tada-hover'></i>
+        <i class='bx bxs-moon bx-tada-hover' v-if="!darkMode"></i>
+        <i class='bx bxs-sun bx-tada-hover' v-else></i>
     </div>
 
-    <img src="img/arrow-png-tumblr-png-image-511048.png" alt="arrow" class="arrow">
+    <img class="arrow" src="img/arrow-png-tumblr-png-image-511048.png" alt="arrow">
 
     <div class="todo-wrapper">
         <form v-on:submit.prevent="addTodo">
@@ -50,8 +50,8 @@
             <a href="https://www.freepik.com/vectors/baby"><img src="img/cat_chilling.png" alt="happy cat"></a>
         </div>
         <p class="todo-counter" v-if="incomplete.length > 0">{{ completed.length }}/{{ todos.length }} todos<span class="clear" v-on:click="clearAll">Clear All</span></p>
+    </div>
 </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <script src="app.js"></script>
