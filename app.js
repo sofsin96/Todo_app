@@ -1,7 +1,7 @@
 Vue.component('side-bar', {
     template: `
         <nav class="menu">
-            <i class="bx bx-menu-alt-left" id="hamburger" v-on:click="$emit('show')"></i>
+            <i class="bx bx-menu-alt-left" id="hamburger" v-on:click="$emit('show-menu')"></i>
             <header class="avatar">
                 <div class="image"></div>  
                 <h2>Carlos R.</h2>
@@ -10,12 +10,8 @@ Vue.component('side-bar', {
                 <li class="nav-item"><i class="fas fa-list"></i>Tasks</li>
                 <li class="nav-item"><i class="fas fa-cog"></i>Settings</li>
                 <li class="nav-item"><i class="fas fa-question-circle"></i>Help</li>
+                <li class="log-out-btn"><i class="fas fa-sign-out-alt"></i>Log out</li>
             </ul>
-            <div class="social-links">
-                <a href="https://icons8.com/icon/118497/facebook"><img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" alt="facebook"></a>
-                <a href="https://icons8.com/icon/32323/instagram"><img src="https://img.icons8.com/fluent/30/000000/instagram-new.png" alt="instagram"></a>
-                <a href="https://icons8.com/icon/5MQ0gPAYYx7a/twitter"><img src="https://img.icons8.com/fluent/30/000000/twitter.png"/></a>            
-            </div>
         </nav>      
     `
 });
@@ -23,17 +19,16 @@ Vue.component('side-bar', {
 Vue.component('todo-item', {
     template: `
         <li>
-            <input type="checkbox" v-bind:checked="done" v-on:change="$emit('input', $event.target.checked)" id="checkbox">
+            <input type="checkbox" id="checkbox" v-bind:checked="done" v-on:change="$emit('input', $event.target.checked)">
             <span>{{ title }}</span>
             <i class="fas fa-trash" v-on:click="$emit('delete')"></i>
-            <hr>
         </li>
     `,
     props: ['title', 'done']
 });
 
 var app = new Vue ({
-    el: '#vue-app',
+    el: '#app',
     data: {
         navActive: false,
         darkMode: false,
@@ -50,12 +45,12 @@ var app = new Vue ({
         }
     },
     watch: {
-      todos: {
-          handler(updatedTodos) {
-              localStorage.todos = JSON.stringify(updatedTodos);
-          },
-          deep: true
-      }
+        todos: {
+            handler(updatedTodos) {
+                localStorage.todos = JSON.stringify(updatedTodos);
+            },
+            deep: true
+        }
     },
     methods: {
         addTodo: function () {

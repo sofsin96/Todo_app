@@ -3,50 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style2.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b7dcf1c2f6.js" crossorigin="anonymous"></script>
     <title>Todo App</title>
 </head>
 <body>
-<div id="vue-app">
+<div id="app">
     <side-bar
-        v-model="navActive"
-        v-bind:class="{ active: navActive }"
-        v-on:show="showNav"
+            v-model="navActive"
+            v-bind:class="{ active: navActive }"
+            v-on:show-menu="showNav"
     >
     </side-bar>
     <div class="theme-toggle" v-on:click="switchTheme">
         <i class='bx bxs-moon bx-tada-hover' v-if="!darkMode"></i>
         <i class='bx bxs-sun bx-tada-hover' v-else></i>
     </div>
-
     <img class="arrow" src="img/arrow-png-tumblr-png-image-511048.png" alt="arrow">
-
     <div class="todo-wrapper">
+        <h1 class="logo">todos</h1>
         <form v-on:submit.prevent="addTodo">
-            <h1 class="title">todos</h1>
-            <p class="date">{{ today }}</p>
+            <h2 class="date">{{ today }}</h2>
             <input class="new-todo" type="text" v-model="newTodo" placeholder="Add new todo">
             <button class="add-btn">&plus;</button>
         </form>
         <ul class="todo-list" v-if="todos.length">
-             <li
-                     is="todo-item"
-                     v-for="(todo, index) in todos"
-                     v-bind:key="todo.id"
-                     class="todo-item"
-                     v-bind:class="{ done: todo.done }"
-                     v-bind:title="todo.title"
-                     v-bind:done="todo.done"
-                     v-on:input="changeStatus(index)"
-                     v-on:delete="deleteTodo(index)"
-             >
-             </li>
+            <li
+                    is="todo-item"
+                    v-for="(todo, index) in todos"
+                    v-bind:key="todo.id"
+                    class="todo-item"
+                    v-bind:class="{ done: todo.done }"
+                    v-bind:title="todo.title"
+                    v-bind:done="todo.done"
+                    v-on:input="changeStatus(index)"
+                    v-on:delete="deleteTodo(index)"
+            >
+            </li>
         </ul>
         <div class="empty-list" v-else>
-            <strong>Time to chill! You have no todos.</strong>
+            <p>Time to chill! You have no todos.</p>
             <a href="https://www.freepik.com/vectors/baby"><img src="img/cat_chilling.png" alt="happy cat"></a>
         </div>
         <p class="todo-counter" v-if="incomplete.length > 0">{{ completed.length }}/{{ todos.length }} todos<span class="clear" v-on:click="clearAll">Clear All</span></p>
