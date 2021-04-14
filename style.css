@@ -402,6 +402,10 @@ body {
         opacity: 0;
         transition: opacity 500ms ease;
     }
+    .logo {
+        margin-left: 80px;
+        transform: translateX(-80px);
+    }
 }
 
 @media screen and (min-width: 1025px) {
