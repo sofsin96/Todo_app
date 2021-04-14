@@ -34,11 +34,7 @@ html {
     --color-check: #03DAC5;
 }
 
-.dark #hamburger {
-    box-shadow: none;
-}
-
-.dark .todo-wrapper {
+.dark #hamburger, .dark .todo-wrapper {
     box-shadow: none;
 }
 
@@ -79,7 +75,7 @@ body {
 
 #hamburger {
     position: absolute;
-    left: 250px;
+    left: 100%;
     font-size: 40px;
     cursor: pointer;
     padding: 5px;
@@ -129,14 +125,14 @@ body {
 
 .nav-item, .log-out-btn {
     width: 100%;
-    padding: 20px 0 20px 20px;
+    padding: 20px 0 20px 30px;
     cursor: pointer;
     color: var(--color-text-secondary);
     font-size: 18px;
 }
 
 .nav-item i, .log-out-btn i {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .nav-item:hover, .log-out-btn:hover {
@@ -379,7 +375,33 @@ body {
 
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        margin-left: 80px;
+    }
 
+    .menu {
+        width: 80px;
+        margin-left: 0;
+        transition: width 500ms linear;
+    }
+
+    .menu.active {
+        width: 250px;
+    }
+
+    .active .avatar, .active .nav-item span, .active .log-out-btn span {
+        opacity: 1;
+    }
+
+    .avatar, .nav-item, .log-out-btn {
+        white-space: nowrap;
+        overflow-x: hidden;
+    }
+
+    .avatar, .nav-item span, .log-out-btn span {
+        opacity: 0;
+        transition: opacity 500ms ease;
+    }
 }
 
 @media screen and (min-width: 1025px) {

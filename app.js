@@ -7,10 +7,10 @@ Vue.component('side-bar', {
                 <h2>Carlos R.</h2>
             </header>
             <ul class="nav-links">
-                <li class="nav-item"><i class="fas fa-list"></i>Tasks</li>
-                <li class="nav-item"><i class="fas fa-cog"></i>Settings</li>
-                <li class="nav-item"><i class="fas fa-question-circle"></i>Help</li>
-                <li class="log-out-btn"><i class="fas fa-sign-out-alt"></i>Log out</li>
+                <li class="nav-item"><i class="fas fa-list"></i><span>Tasks</span></li>
+                <li class="nav-item"><i class="fas fa-cog"></i><span>Settings</span></li>
+                <li class="nav-item"><i class="fas fa-question-circle"></i><span>Help</span></li>
+                <li class="log-out-btn"><i class="fas fa-sign-out-alt"></i><span>Log out</span></li>
             </ul>
         </nav>      
     `
