@@ -150,9 +150,8 @@ body {
 
 .logo {
     position: absolute;
-    top: -20%;
+    top: 10px;
     left: 50%;
-    padding-top: 4px;
     transform: translateX(-50%);
     color: var(--color-text-primary);
     font-weight: 700;
@@ -161,8 +160,8 @@ body {
 
 .theme-toggle {
     position: absolute;
-    top: 11px;
-    right: 9px;
+    top: 10px;
+    right: 10px;
 }
 
 .bxs-moon, .bxs-sun {
@@ -180,7 +179,6 @@ body {
 }
 
 .todo-wrapper {
-    position: relative;
     width: 400px;
     height: 550px;
     padding: 40px 40px 0 40px;
@@ -395,6 +393,11 @@ body {
 
     #hamburger {
         display: none;
+    }
+
+    .logo {
+        margin-right: 50%;
+        transform: translateX(50%);
     }
 
     .theme-toggle {

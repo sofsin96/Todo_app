@@ -17,13 +17,13 @@
             v-on:show-menu="showNav"
     >
     </side-bar>
+    <h1 class="logo">todos</h1>
     <div class="theme-toggle" v-on:click="switchTheme">
         <i class='bx bxs-moon bx-tada-hover' v-if="!darkMode"></i>
         <i class='bx bxs-sun bx-tada-hover' v-else></i>
     </div>
     <img class="arrow" src="img/arrow-png-tumblr-png-image-511048.png" alt="arrow">
     <div class="todo-wrapper">
-        <h1 class="logo">todos</h1>
         <form v-on:submit.prevent="addTodo">
             <h2 class="date">{{ today }}</h2>
             <input class="new-todo" type="text" v-model="newTodo" placeholder="Add new todo">
